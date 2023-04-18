@@ -53,12 +53,15 @@ public class StatsManager : MonoBehaviour {
 
     public void AddStatMod(StatModifier statMod) {
         var stat = statMod.StatType;
+        Debug.Log(stat);
         getStat(stat).AddModifier(statMod);
+        getStat(stat).PushStat();
     }
 
     public void RemoveStatMod(StatModifier statMod) {
         var stat = statMod.StatType;
         getStat(stat).RemoveModifier(statMod);
+        getStat(stat).PushStat();
     }
 
     public void updateArtifacts() {

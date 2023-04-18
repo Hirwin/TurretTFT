@@ -46,7 +46,6 @@ public class BuffManager : MonoBehaviour {
     }
 
     public void ApplyStats(StatModifier[] statList, float maxDuration) {
-        Debug.Log("Applying Stats: " + statList);
         float duration = maxDuration;
         if (statList.Length != 0) {
             foreach (StatModifier stat in statList) {

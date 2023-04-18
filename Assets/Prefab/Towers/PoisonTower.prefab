@@ -163,7 +163,7 @@ MonoBehaviour:
   statsManager: {fileID: 4090905660740439410}
   statList:
   - Order: 0
-    Value: 0.5
+    Value: -0.5
     Type: 300
     StatType: 2
   maxDuration: -1
