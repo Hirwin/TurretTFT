@@ -6,8 +6,8 @@ public class ProjectileBase : MonoBehaviour
 {
     protected Transform target;
     protected float damage;
+    protected BaseBuffSO status;
     [SerializeField] protected float speed = 70f;
-    [SerializeField] protected BaseBuffSO[] OnApply;
     
     public void Seek(Transform _target) {
         target = _target;
@@ -20,10 +20,14 @@ public class ProjectileBase : MonoBehaviour
         return damage;
     }
 
+    public void SetStatus(BaseBuffSO _status) {
+            status = _status;
+    }
+
     public void ApplyStatus(BuffManager _target) {
-        if (OnApply != null && _target != null) {
+        if (status!= null && _target != null) {
             Debug.Log(_target);
-            _target.GetComponent<BuffManager>().AddBuff(OnApply);
+            _target.GetComponent<BuffManager>().AddBuff(status);
         }
     }
 }

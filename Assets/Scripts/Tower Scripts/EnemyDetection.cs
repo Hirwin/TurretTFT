@@ -13,6 +13,7 @@ public class EnemyDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Enter");
+        Debug.Log(tower);
         if (other.CompareTag("Enemy")) {
             tower.AddtargetToInRangeList(other.GetComponent<Enemy>());
         }

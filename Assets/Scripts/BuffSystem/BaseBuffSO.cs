@@ -1,13 +1,14 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class BaseBuffSO
+public abstract class BaseBuffSO
 {
-    [SerializeField] private StatModifier[] statList;
-    [SerializeField] private float maxDuration = -1;
-    [SerializeField] private TickBase tickFunction;
+    [SerializeField] protected StatModifier[] statList;
+    [SerializeField] protected float maxDuration = -1;
+    [SerializeField] protected TickBase tickFunction;
     [SerializeField] public bool stackable;
+    //We are going to want to create scriptable objects for the STatus Type, the same for stats themselves, the status type will probably be blank, and will be ingested by the factory initially, then the comparisons will search for that information, I think
 
     public BaseBuffSO(StatModifier[] statList, float maxDuration, TickBase tickFunction, bool stackable) {
         this.statList = statList;
@@ -16,33 +17,25 @@ public class BaseBuffSO
         this.stackable = stackable;
     }
 
-    private float duration;
-    private Buffable statsOwner;
+    protected float duration;
+    protected Buffable statsOwner;
 
     public event EventHandler<OnDurationEndEventArgs> OnDurationEnd;
     public class OnDurationEndEventArgs : EventArgs {
         public BaseBuffSO buff;
     }
-    public void ApplyStats(StatsManager statsManager) {
-        duration = maxDuration;
-        if (statList.Length != 0) {
-            foreach (StatModifier stat in statList) {
-                statsManager.AddStatMod(stat); 
-            }
-        }
-    }
-    public void RemoveStats(StatsManager statsManager) {
-        if (statList.Length != 0) {
-            foreach (StatModifier stat in statList) {
-                statsManager.RemoveStatMod(stat);
-            }
-        }
-    }
-    public void StackBuff() {
+    public virtual void StackBuff() {
        // durationReset();
     }
 
-    private void durationReset() {
+    public StatModifier[] GetStatList() {
+        return statList;
+    }
+
+    public float GetMaxDuration() {
+        return maxDuration;
+    }
+    protected void durationReset() {
         duration = maxDuration;
     }
     public void OnTick() {

@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class BasicTower : Tower
 {
-    [SerializeField] private GameObject BulletPrefab;
-    [SerializeField] private GameObject shootPoint;
-    [SerializeField] private GameObject detectionRadius;
+    [SerializeField] protected GameObject BulletPrefab;
+    [SerializeField] protected GameObject shootPoint;
+    [SerializeField] protected GameObject detectionRadius;
 
     private float fireCountdown;
 
@@ -20,11 +20,11 @@ public class BasicTower : Tower
         statsManager.getStat(StatsManager.StatTypes.AttackRange).OnStatUpdate += AttackRange_OnStatChange;
     }
 
-    private void AttackRange_OnStatChange(object sender, CharacterStat.OnStatUpdateEventArgs e) {
+    protected void AttackRange_OnStatChange(object sender, CharacterStat.OnStatUpdateEventArgs e) {
         SetAttackRange(e.characterStat.Value);
     }
 
-    private void SetAttackRange(float value) {
+    protected void SetAttackRange(float value) {
         detectionRadius.transform.localScale = new Vector3(value, 1, value);
     }
 
