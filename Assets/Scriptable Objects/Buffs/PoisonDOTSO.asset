@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c270be127f96fb479fa5a9e57470974, type: 3}
+  m_Name: PoisonDOTSO
+  m_EditorClassIdentifier: 
+  statList:
+  - Order: 0
+    Value: 0.5
+    Type: 300
+    StatType: 2
+  maxDuration: 5
+  tickFunction: {fileID: 0}
+  stackable: 0
