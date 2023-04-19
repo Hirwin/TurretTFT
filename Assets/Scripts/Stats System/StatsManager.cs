@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class StatsManager : MonoBehaviour {
 
     //[SerializeField] StatPanel statPanel;
-    public enum StatTypes { Damage, Health, MoveSpeed, FireRate, AttackRange } 
+    public enum StatTypes { Damage, Health, MoveSpeed, FireRate, AttackRange, PoisonTick } 
 
     public GameObject character;
     //[SerializeField] private List<CharacterStat> statList = new List<CharacterStat>();
