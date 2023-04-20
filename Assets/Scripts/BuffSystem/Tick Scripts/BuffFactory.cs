@@ -8,8 +8,7 @@ public abstract class BuffFactory<T>: MonoBehaviour where T : BaseBuffSO {
     [SerializeField] protected StatModifier[] statList;
     [SerializeField] protected float maxDuration = -1;
     [SerializeField] protected bool stackable;
-    public delegate void Tick(Buffable statsOwner);
-    protected Tick tickFunction;
+    [SerializeField] protected BuffTypeSO statusType;
     public virtual T CreateBuff() {
         T _Buff = null;
         return _Buff;

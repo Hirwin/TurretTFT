@@ -6,36 +6,55 @@ using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
 
 public class BuffManager : MonoBehaviour {
-    private List<BaseBuffSO> buffList;
+    [SerializeField] private List<BaseBuffSO> buffList;
     [SerializeField] private StatsManager statsManager;
     [SerializeField] private Buffable statsOwner;
-
+    public delegate void Tick(Buffable statsOwner);
+    protected Tick tickFunction;
     private void Awake() {
         buffList = new List<BaseBuffSO>();
+        StartCoroutine(OnTick());
     }
     private void Update() {
-        /*if (buffList.Count > 0) {
-            foreach (BaseBuffSO buff in buffList) {
-                //buff.OnTick(statsOwner);
-            }
-        }*/
     }
-
+    IEnumerator OnTick() {
+        Debug.Log("Starting in the manager");
+        for (; ; ) {
+            if (buffList.Count > 0) {
+                Debug.Log(buffList.Count);
+                for (var i = 0; i < buffList.Count; i++){
+                    buffList[i].OnTick();
+                }
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
     public void AddBuff(BaseBuffSO status) {
-        // if (!buffList.Contains(status)) {
+        BaseBuffSO stackableStatus = checkForStatusType(status.GetStatusType());
+        if (stackableStatus == null) {
                 Debug.Log(status + " " + buffList);
                 buffList.Add(status);
                 status.SetBuffHolder(statsOwner);
-                ApplyStats(status.GetStatList(), status.GetMaxDuration());
+                ApplyStats(status.GetStatList());
                 status.OnDurationEnd += Buff_OnBuffDurationEnd;
-           // } else {
-           //     status.StackBuff();
-          //  }
+           } else if (stackableStatus.stackable){
+                stackableStatus.StackBuff();
+           }
 
     }
 
     private void Buff_OnBuffDurationEnd(object sender, BaseBuffSO.OnDurationEndEventArgs e) {
         RemoveBuff(e.buff);
+    }
+
+    public BaseBuffSO checkForStatusType(BuffTypeSO statusType) {
+        if (buffList.Count == 0) { return null; }
+        foreach (BaseBuffSO buff in buffList) {
+            if (buff.GetStatusType() == statusType) {
+                return buff;
+            }
+        }
+        return null;
     }
 
     public void RemoveBuff(BaseBuffSO _buff) {
@@ -46,8 +65,7 @@ public class BuffManager : MonoBehaviour {
         }
     }
 
-    public void ApplyStats(StatModifier[] statList, float maxDuration) {
-        float duration = maxDuration;
+    public void ApplyStats(StatModifier[] statList) {
         if (statList.Length != 0) {
             foreach (StatModifier stat in statList) {
                 statsManager.AddStatMod(stat);

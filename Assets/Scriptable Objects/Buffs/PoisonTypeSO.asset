@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c270be127f96fb479fa5a9e57470974, type: 3}
-  m_Name: PoisonDOTSO
+  m_Script: {fileID: 11500000, guid: 5ec6c982ae2642a479f7cc3833316fb5, type: 3}
+  m_Name: PoisonTypeSO
   m_EditorClassIdentifier: 
-  statList:
-  - Order: 0
-    Value: 0.5
-    Type: 300
-    StatType: 2
-  maxDuration: 5
-  tickFunction: {fileID: 0}
-  stackable: 0
+  statusName: 

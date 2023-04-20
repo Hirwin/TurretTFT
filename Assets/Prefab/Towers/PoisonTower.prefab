@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9007958944033532235, guid: 22c913dd6064d584b816b116f1536e99,
+        type: 3}
+      propertyPath: statTypeList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -9007958944033532235, guid: 22c913dd6064d584b816b116f1536e99,
+        type: 3}
+      propertyPath: statTypeList.Array.data[3].StatType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -9007958944033532235, guid: 22c913dd6064d584b816b116f1536e99,
+        type: 3}
+      propertyPath: statTypeList.Array.data[0].BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9007958944033532235, guid: 22c913dd6064d584b816b116f1536e99,
+        type: 3}
+      propertyPath: statTypeList.Array.data[3].BaseValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -6556607265162019916, guid: 22c913dd6064d584b816b116f1536e99,
         type: 3}
       propertyPath: statsOwner
@@ -166,8 +186,9 @@ MonoBehaviour:
     Value: -0.5
     Type: 300
     StatType: 2
-  maxDuration: -1
+  maxDuration: 5
   stackable: 0
+  statusType: {fileID: 11400000, guid: 915e6ab12c1277b40992ec1e89d75a1e, type: 2}
 --- !u!1 &9172455060867677989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5004492391403873506, guid: 22c913dd6064d584b816b116f1536e99,
