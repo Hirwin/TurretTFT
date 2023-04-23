@@ -10,7 +10,6 @@ public class Enemy : Buffable, IDamagable, IHasStats
     [SerializeField]private NavMeshAgent enemyAgent;
     [SerializeField]private Transform objective;
     [SerializeField]private Health health;
-    [SerializeField]private StatsManager statsManager;
     [SerializeField]private Transform spawnPoint;
     [SerializeField]private Transform holdPoint;
     private GameObject itemHeld;

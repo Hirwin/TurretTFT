@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Buffable : MonoBehaviour
 {
-
+    [SerializeField] protected StatsManager statsManager;
 }

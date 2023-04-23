@@ -13,7 +13,6 @@ public class Tower : Buffable, IHasStats
     [SerializeField]private Enemy currentTarget;
     [SerializeField]private TargetStyle currentTargetStyle = TargetStyle.First;
 
-    [SerializeField]protected StatsManager statsManager;
     private TargetStyle _previousTargetStyle;
 
     private void Awake() {

@@ -40,7 +40,7 @@ public class ProjectileMortar : ProjectileBase
         bullet.Initialize(GetDamage());
         Debug.Log("Boom Baybeeee");
     }
-    private void TargetHit() {
+    protected void TargetHit() {
         Detonate();
         Destroy(gameObject);
     }

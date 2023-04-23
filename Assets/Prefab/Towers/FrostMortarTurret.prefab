@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 4619556044035620706, guid: 22c913dd6064d584b816b116f1536e99,
         type: 3}
       propertyPath: m_Name
-      value: ExplodingMortarTurret
+      value: FrostMortarTurret
       objectReference: {fileID: 0}
     - target: {fileID: 6482038525354988543, guid: 22c913dd6064d584b816b116f1536e99,
         type: 3}
@@ -168,6 +168,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 466245579608159052}
+    - targetCorrespondingSourceObject: {fileID: 4619556044035620706, guid: 22c913dd6064d584b816b116f1536e99,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8929712141831464374}
   m_SourcePrefab: {fileID: 100100000, guid: 22c913dd6064d584b816b116f1536e99, type: 3}
 --- !u!1 &111859287765034861 stripped
 GameObject:
@@ -193,14 +197,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b7005c5543f8649b8b283b1bfcde2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsManager: {fileID: 5045066413472077114}
   targetsInRange: []
   currentTarget: {fileID: 0}
   currentTargetStyle: 0
-  statsManager: {fileID: 5045066413472077114}
-  BulletPrefab: {fileID: 2272447674135392816, guid: 8a448f08b1472d54480d9bf80c9847ab,
+  BulletPrefab: {fileID: 2272447674135392816, guid: 6e54a26fa2666a546a74b1eb929329d6,
     type: 3}
   shootPoint: {fileID: 8513775178605957594}
   detectionRadius: {fileID: 111859287765034861}
+--- !u!114 &8929712141831464374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352711796023737581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84aa6d9897983024aa2f1b0186cfb32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsManager: {fileID: 5045066413472077114}
+  statList:
+  - Order: 0
+    Value: -0.5
+    Type: 200
+    StatType: 2
+  maxDuration: 10
+  stackable: 1
+  statusType: {fileID: 11400000, guid: bf7a3f1d679915a4f801b1a897e11a0d, type: 2}
+  Frozen:
+    Order: 0
+    Value: 0
+    Type: 300
+    StatType: 2
 --- !u!114 &5045066413472077114 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -9007958944033532235, guid: 22c913dd6064d584b816b116f1536e99,

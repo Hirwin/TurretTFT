@@ -21,10 +21,6 @@ public abstract class BaseBuffSO
         this.statusType = statusType;
     }
 
-
-    //We are going to want to create scriptable objects for the STatus Type, the same for stats themselves, the status type will probably be blank, and will be ingested by the factory initially, then the comparisons will search for that information, I think
-
-
     public event EventHandler<OnDurationEndEventArgs> OnDurationEnd;
     public class OnDurationEndEventArgs : EventArgs {
         public BaseBuffSO buff;
